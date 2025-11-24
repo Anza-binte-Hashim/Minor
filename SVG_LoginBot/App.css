@@ -1,0 +1,257 @@
+/* --- General Layout --- */
+.login-container {
+  max-width: 400px;
+  margin: 50px auto;
+  padding: 40px;
+  background: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+  font-family: 'Segoe UI', sans-serif;
+  text-align: center;
+}
+h2 { color: #2c3e50; margin-bottom: 20px; }
+/* --- Form Elements --- */
+.form-group { margin-bottom: 15px; text-align: left; }
+label { display: block; margin-bottom: 5px; color: #666; font-size: 0.9rem; }
+input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 1rem;
+  box-sizing: border-box; /* Important for padding */
+}
+.btn-submit {
+  width: 100%;
+  padding: 12px;
+  background-color: #2c3e50;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-size: 1rem;
+  cursor: pointer;
+  margin-top: 10px;
+  transition: background 0.3s;
+}
+.btn-submit:hover { background-color: #34495e; }
+
+
+/* The Overlay: Now with a Blur effect */
+.modal-overlay {
+  position: fixed;
+  top: 0; left: 0; width: 100%; height: 100%;
+  background: rgba(0, 0, 0, 0.6); /* Darker for contrast */
+  backdrop-filter: blur(4px); /* Professional glass effect */
+  display: flex; justify-content: center; align-items: center;
+  z-index: 1000;
+  animation: fadeIn 0.3s ease-out;
+}
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+/* The Card: Deep shadows and rounded corners */
+.modal-content {
+  background: white;
+  padding: 40px 30px; /*More vertical breathing room */
+  border-radius: 16px; /*Modern softer corners */
+  width: 320px;
+  text-align: center;
+  position: relative; /*Needed for the accent bar */
+  overflow: hidden; /*Keeps the accent bar inside the corners */
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+
+  opacity: 0;
+  animation: smoothZoom 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+        @keyframes smoothZoom {
+          0% {
+            opacity: 0;
+            transform: scale(0.95) translateY(10px);
+          }
+          100% {
+            opacity: 1;
+            transform: scale(1) translateY(0);
+          }
+        }
+/* Typography */
+.modal-title {
+  margin-top: 25px;
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #1e293b; /* Slate 800 */
+  letter-spacing: -0.025em; /* Tight, modern tracking */
+}
+.modal-subtitle {
+  margin-top: 8px;
+  font-size: 0.9rem;
+  color: #64748b; /* Slate 500 - Muted text */
+}
+/* The Accent Bar (Top Strip) */
+.modal-accent-bar {
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 6px;
+}
+.modal-text { margin-top: 20px; font-weight: 500; color: #333; }
+/* Status Icon Styles*/
+.status-icon {
+  width: 80px; height: 80px;
+  display: block; margin: 0 auto;
+}
+.anim-path {
+  fill: none;
+  stroke-width: 4;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  animation: drawLine 1s ease-in-out forwards;
+}
+          @keyframes drawLine { to { stroke-dashoffset: 0; } }
+/* Dynamic Colors based on Status */
+.status-success .modal-accent-bar { background-color: #27ae60; }
+.status-success .modal-title { color: #27ae60; }
+
+.status-warning .modal-accent-bar { background-color: #f39c12; }
+.status-warning .modal-title { color: #d35400; }
+
+.status-error .modal-accent-bar { background-color: #c0392b; } /* Red for Error */
+.status-error .modal-title { color: #c0392b; }
+
+
+/* --- 1. SUCCESS: Liquid Fill Effect --- */
+.liquid-circle {
+  fill: transparent;
+  stroke: #27ae60;
+  stroke-width: 4;
+  /* Draw the outline first */
+  stroke-dasharray: 300;
+  stroke-dashoffset: 300;
+  animation: 
+    drawLine 1s ease-in-out forwards, 
+    fillGreen 0.5s ease-out 1s forwards; /* Starts after draw finishes */
+}
+.liquid-check {
+  fill: none;
+  stroke: #27ae60; /* Starts Green */
+  stroke-width: 4;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-dasharray: 100;
+  stroke-dashoffset: 100;
+  animation: 
+    drawLine 1s ease-in-out forwards,
+    turnWhite 0.5s ease-out 1s forwards; /* Turns white as background fills */
+}
+          @keyframes fillGreen {
+            to { fill: #27ae60; }
+          }
+          @keyframes turnWhite {
+            to { stroke: #ffffff; }
+          }
+
+
+/* --- 2. ERROR: The Security Lock Snap --- */
+.lock-body {
+  fill: #c0392b; /* Red */
+  transform: scale(0);
+  transform-origin: center bottom;
+  animation: popUp 0.5s cubic-bezier(0.17, 0.67, 0.83, 0.67) forwards;
+}
+.lock-shackle {
+  fill: none;
+  stroke: #c0392b;
+  stroke-width: 6;
+  stroke-linecap: round;
+  /* Start in "Unlocked" position (up) */
+  transform: translateY(-10px); 
+  opacity: 0;
+  animation: 
+    fadeInShackle 0.3s forwards 0.4s,
+    snapShut 0.4s cubic-bezier(0.68, -0.55, 0.26, 1.55) forwards 0.6s;
+}
+/* The whole icon shakes at the end */
+.lock-group {
+  transform-origin: center;
+  animation: violentShake 0.4s ease-in-out 1s;
+}
+          @keyframes popUp { to { transform: scale(1); } }
+          @keyframes fadeInShackle { to { opacity: 1; } }
+          @keyframes snapShut { to { transform: translateY(0); } }
+          @keyframes violentShake {
+            0%, 100% { transform: translateX(0); }
+            20% { transform: translateX(-5px) rotate(-5deg); }
+            40% { transform: translateX(5px) rotate(5deg); }
+            60% { transform: translateX(-5px); }
+            80% { transform: translateX(5px); }
+          }
+
+          
+/* --- 3. WARNING: The ID Scan --- */
+.doc-outline {
+  fill: none;
+  stroke: #f39c12;
+  stroke-width: 4;
+  stroke-linecap: round;
+}
+.doc-lines {
+  fill: none;
+  stroke: #f39c12;
+  stroke-width: 3;
+  stroke-linecap: round;
+  opacity: 0.5;
+}
+.scan-laser {
+  fill: none;
+  stroke: #d35400; /* Darker Orange Laser */
+  stroke-width: 3;
+  stroke-linecap: round;
+  /* This makes the laser glow */
+  filter: drop-shadow(0 0 4px #f39c12);
+  animation: scanMotion 1.5s ease-in-out infinite alternate;
+}
+          @keyframes scanMotion {
+            0% { transform: translateY(25px); opacity: 0.5; }
+            100% { transform: translateY(75px); opacity: 1; }
+          }
+
+
+/* --- The Breathing Horizon Border --- */
+.horizon-container {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 6px; /* Thickness of the border */
+  overflow: hidden;
+  border-radius: 0 0 16px 16px;
+  /* Optional: A very faint background track */
+  background: rgba(0,0,0,0.02);
+}
+
+.horizon-line {
+  width: 100%;
+  height: 100%;
+
+  transform-origin: left;
+  transition: 1s;
+ 
+  animation: breathe 3s ease-in-out infinite;
+}
+
+/* Dynamic Colors - Using background-color instead of fill */
+.status-success .horizon-line { background-color: #27ae60; box-shadow: 0 0 4px #27ae60; }
+.status-warning .horizon-line { background-color: #f39c12; box-shadow: 0 0 4px #f39c12; }
+.status-error   .horizon-line { background-color: #c0392b; box-shadow: 0 0 4px #c0392b; }
+
+/* Keyframes: Grow, Glow, Shrink */
+@keyframes breathe {
+  0% {
+    transform: scaleX(0); 
+    opacity: 0.9;           
+  }
+  100% {
+    transform: scaleX(1); 
+    opacity: 0.9;
+  }
+}
+/* Warning (Amber Triangle) */
+/* .path-warning {
+  stroke: #f39c12; */
+  /* stroke-dasharray: 300; stroke-dashoffset: 300; Longer path needs longer array } */
