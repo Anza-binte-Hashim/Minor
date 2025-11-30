@@ -1,0 +1,289 @@
+.hospital-container {
+    display: flex;
+    min-height: calc(100vh - 80px);
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.hospital-sidebar {
+    width: 250px;
+    background: var(--primary-color);
+    padding: 2rem 0;
+    display: flex;
+    flex-direction: column;
+    position: sticky;
+    top: 80px;
+    height: calc(100vh - 80px);
+}
+
+.hospital-content {
+    flex: 1;
+    padding: 2rem;
+    overflow-y: auto;
+}
+
+.hospital-section {
+    display: none;
+}
+
+.hospital-section.active {
+    display: block;
+    animation: fadeIn 0.3s ease;
+}
+
+.hospital-section h2 {
+    color: var(--primary-color);
+    margin-bottom: 1.5rem;
+    font-size: 1.8rem;
+}
+
+.sidebar-btn {
+    padding: 1rem 1.5rem;
+    background: transparent;
+    border: none;
+    color: white;
+    font-weight: 600;
+    cursor: pointer;
+    border-left: 4px solid transparent;
+    transition: var(--transition);
+    text-align: left;
+}
+
+.sidebar-btn:hover,
+.sidebar-btn.active {
+    background: rgba(52, 152, 219, 0.2);
+    border-left-color: var(--secondary-color);
+    color: var(--secondary-color);
+}
+
+/* Doctors Tab */
+.doctors-tab-buttons {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 2rem;
+    border-bottom: 2px solid var(--light-bg);
+}
+
+.doctors-tab-btn {
+    padding: 0.75rem 1.5rem;
+    background: transparent;
+    border: none;
+    color: var(--dark-text);
+    font-weight: 600;
+    cursor: pointer;
+    border-bottom: 3px solid transparent;
+    transition: var(--transition);
+}
+
+.doctors-tab-btn.active {
+    color: var(--secondary-color);
+    border-bottom-color: var(--secondary-color);
+}
+
+.doctors-tab-btn:hover {
+    color: var(--secondary-color);
+}
+
+.doctors-tab-content {
+    display: none;
+}
+
+.doctors-tab-content.active {
+    display: block;
+    animation: fadeIn 0.3s ease;
+}
+
+.doctors-tab-content.hidden {
+    display: none;
+}
+
+/* Add Button */
+.add-btn-container {
+    margin-bottom: 2rem;
+}
+
+/* Doctor Cards */
+.doctors-list,
+.departments-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1.5rem;
+}
+
+.doctor-card,
+.department-card {
+    background: white;
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+    overflow: hidden;
+    transition: var(--transition);
+    position: relative;
+}
+
+.doctor-card:hover,
+.department-card:hover {
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0. 15);
+    transform: translateY(-5px);
+}
+
+.doctor-card-header {
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    color: white;
+    padding: 1.5rem;
+    position: relative;
+}
+
+.doctor-status {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    border: 3px solid white;
+}
+
+.doctor-status.available {
+    background: var(--success-color);
+}
+
+.doctor-status.busy {
+    background: var(--warning-color);
+}
+
+.doctor-status.unavailable {
+    background: var(--danger-color);
+}
+
+.doctor-info {
+    padding: 1. 5rem;
+}
+
+.doctor-info h3 {
+    margin-bottom: 0.5rem;
+    color: var(--primary-color);
+}
+
+.doctor-info p {
+    margin-bottom: 0.5rem;
+    color: #666;
+    font-size: 0.95rem;
+}
+
+.doctor-card-actions {
+    padding: 0 1.5rem 1.5rem;
+    display: flex;
+    gap: 0.5rem;
+}
+
+.btn-consult {
+    flex: 1;
+    padding: 0.75rem;
+    background: var(--secondary-color);
+    color: white;
+    border: none;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    font-weight: 600;
+    transition: var(--transition);
+}
+
+.btn-consult:hover:not(:disabled) {
+    background: #2980b9;
+    transform: translateY(-2px);
+}
+
+.btn-consult:disabled {
+    background: #95a5a6;
+    cursor: not-allowed;
+}
+
+/* Department Cards */
+.department-card {
+    padding: 1.5rem;
+}
+
+.department-card h3 {
+    color: var(--primary-color);
+    margin-bottom: 0.5rem;
+}
+
+.department-card p {
+    color: #666;
+    margin-bottom: 1rem;
+    font-size: 0.95rem;
+}
+
+.department-stats {
+    background: var(--light-bg);
+    padding: 1rem;
+    border-radius: var(--border-radius);
+    margin-bottom: 1rem;
+    text-align: center;
+}
+
+.department-stats p {
+    margin: 0;
+    font-weight: 600;
+    color: var(--secondary-color);
+}
+
+.btn-view-all {
+    width: 100%;
+    padding: 0.75rem;
+    background: var(--secondary-color);
+    color: white;
+    border: none;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    font-weight: 600;
+    transition: var(--transition);
+}
+
+.btn-view-all:hover {
+    background: #2980b9;
+}
+
+/* About Form */
+.about-form {
+    max-width: 600px;
+    background: white;
+    padding: 2rem;
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .hospital-container {
+        flex-direction: column;
+    }
+
+    .hospital-sidebar {
+        width: 100%;
+        height: auto;
+        position: static;
+        padding: 1rem 0;
+        display: flex;
+        flex-direction: row;
+        overflow-x: auto;
+    }
+
+    .sidebar-btn {
+        white-space: nowrap;
+        flex: 1;
+    }
+
+    .hospital-content {
+        padding: 1rem;
+    }
+
+    .doctors-list,
+    .departments-list {
+        grid-template-columns: 1fr;
+    }
+
+    .doctors-tab-buttons {
+        flex-wrap: wrap;
+    }
+}

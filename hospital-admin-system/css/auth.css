@@ -1,0 +1,62 @@
+.login-form-container,
+.registration-form-container {
+    min-width: 450px;
+}
+
+@media (max-width: 768px) {
+    .login-form-container,
+    .registration-form-container {
+        min-width: auto;
+        width: 100%;
+    }
+}
+
+.registration-form-container {
+    max-width: 550px;
+}
+
+.tab-buttons {
+    display: flex;
+    gap: 0;
+    margin-bottom: 2rem;
+    border-bottom: 2px solid var(--light-bg);
+    background: var(--light-bg);
+    border-radius: var(--border-radius);
+    padding: 0. 25rem;
+}
+
+.tab-btn {
+    flex: 1;
+    padding: 1rem;
+    background: transparent;
+    border: none;
+    color: var(--dark-text);
+    font-weight: 600;
+    cursor: pointer;
+    border-bottom: 3px solid transparent;
+    border-radius: var(--border-radius);
+    transition: var(--transition);
+}
+
+.tab-btn.active {
+    background: white;
+    color: var(--secondary-color);
+    border-bottom-color: var(--secondary-color);
+}
+
+.tab-btn:hover {
+    color: var(--secondary-color);
+}
+
+.tab-content {
+    display: none;
+    animation: fadeIn 0.3s ease;
+}
+
+.tab-content.active {
+    display: block;
+}
+
+.tab-content.hidden {
+    display: none;
+}

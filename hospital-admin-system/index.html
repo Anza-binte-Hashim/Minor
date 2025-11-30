@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hospital Administration System</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/home.css">
+    <link rel="stylesheet" href="css/auth.css">
+    <link rel="stylesheet" href="css/admin.css">
+    <link rel="stylesheet" href="css/hospital.css">
+    <link rel="stylesheet" href="css/user.css">
+</head>
+<body>
+    <!-- Home Page -->
+    <div id="home-page" class="page active">
+        <nav class="navbar">
+            <div class="navbar-container">
+                <div class="logo">HAS - Hospital Admin System</div>
+                <div class="nav-right">
+                    <button id="login-btn" class="login-btn">
+                        <i class="icon-login"></i> Login
+                    </button>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <section class="hero-section">
+                <div class="hero-content">
+                    <h1>Welcome to Hospital Administration System</h1>
+                    <p>Efficient Management of Healthcare Services</p>
+                </div>
+            </section>
+
+            <!-- Physiology Section -->
+            <section id="physiology-section" class="dynamic-section">
+                <h2>Physiology</h2>
+                <div class="subsections-container">
+                    <!-- Hero -->
+                    <article class="subsection hero">
+                        <h3>Physiology - Hero</h3>
+                        <div class="content">
+                            <p>Understanding the functions of living organisms and their systems is fundamental to medical science. </p>
+                            <img src="https://via.placeholder.com/400x250" alt="Physiology Hero">
+                        </div>
+                    </article>
+
+                    <!-- About (Larger) -->
+                    <article class="subsection about">
+                        <h3>About Physiology</h3>
+                        <div class="content">
+                            <p>Physiology is the study of how living organisms and their parts work or function. It is the science of how organisms, organ systems, cells, and biomolecules carry out the chemical and physical functions that exist in a living system.</p>
+                            <p>In medical practice, physiology helps doctors understand:</p>
+                            <ul>
+                                <li>How the human body systems work</li>
+                                <li>How organs function in health and disease</li>
+                                <li>How cells respond to stimuli</li>
+                                <li>How to diagnose and treat diseases</li>
+                            </ul>
+                            <img src="https://via.placeholder. com/600x400" alt="Physiology About">
+                        </div>
+                    </article>
+
+                    <!-- History -->
+                    <article class="subsection history">
+                        <h3>History of Physiology</h3>
+                        <div class="content">
+                            <p>The study of physiology dates back to ancient civilizations, but modern physiology began during the Renaissance. </p>
+                            <p>Key milestones:</p>
+                            <ul>
+                                <li>1600s: William Harvey discovered blood circulation</li>
+                                <li>1800s: Claude Bernard established the concept of internal environment</li>
+                                <li>1900s: Development of modern experimental techniques</li>
+                            </ul>
+                            <img src="https://via.placeholder. com/400x250" alt="Physiology History">
+                        </div>
+                    </article>
+                </div>
+            </section>
+
+            <!-- Anatomy Section -->
+            <section id="anatomy-section" class="dynamic-section">
+                <h2>Anatomy</h2>
+                <div class="subsections-container">
+                    <!-- Hero -->
+                    <article class="subsection hero">
+                        <h3>Anatomy - Hero</h3>
+                        <div class="content">
+                            <p>Anatomy is the science of understanding the structure of the human body and its components.</p>
+                            <img src="https://via.placeholder.com/400x250" alt="Anatomy Hero">
+                        </div>
+                    </article>
+
+                    <!-- About (Larger) -->
+                    <article class="subsection about">
+                        <h3>About Anatomy</h3>
+                        <div class="content">
+                            <p>Anatomy is the scientific study of the body's structures.  It is an old science, having its beginnings in prehistoric times, with the first writings on anatomy dating back to the ancient Egyptians.</p>
+                            <p>Anatomy is divided into several branches:</p>
+                            <ul>
+                                <li>Gross Anatomy: Study of body structures visible to the naked eye</li>
+                                <li>Microscopic Anatomy: Study of cells and tissues under microscope</li>
+                                <li>Systemic Anatomy: Study of body systems</li>
+                                <li>Regional Anatomy: Study of specific body regions</li>
+                            </ul>
+                            <img src="https://via.placeholder.com/600x400" alt="Anatomy About">
+                        </div>
+                    </article>
+
+                    <!-- History -->
+                    <article class="subsection history">
+                        <h3>History of Anatomy</h3>
+                        <div class="content">
+                            <p>The study of anatomy has evolved significantly over the centuries. </p>
+                            <p>Important developments:</p>
+                            <ul>
+                                <li>Ancient Egypt: Mummification led to anatomical knowledge</li>
+                                <li>Renaissance: Andreas Vesalius revolutionized anatomy with detailed observations</li>
+                                <li>Modern Era: Advanced imaging techniques provide new insights</li>
+                            </ul>
+                            <img src="https://via.placeholder. com/400x250" alt="Anatomy History">
+                        </div>
+                    </article>
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            <p>&copy; 2025 Hospital Administration System. All rights reserved.</p>
+        </footer>
+    </div>
+
+    <!-- Login Modal -->
+    <div id="login-modal" class="modal hidden">
+        <div class="modal-content login-form-container">
+            <button class="modal-close">&times;</button>
+            <div class="form-wrapper">
+                <h2>Login</h2>
+                <form id="login-form">
+                    <div class="form-group">
+                        <label for="login-username">Username:</label>
+                        <input type="text" id="login-username" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="login-password">Password:</label>
+                        <input type="password" id="login-password" required>
+                    </div>
+                    <button type="submit" class="btn-submit">Login</button>
+                </form>
+                <p class="form-link">
+                    Don't have an account?  <a href="#" id="register-link">Register Here</a>
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Registration Modal -->
+    <div id="registration-modal" class="modal hidden">
+        <div class="modal-content registration-form-container">
+            <button class="modal-close">&times;</button>
+            <div class="form-wrapper">
+                <h2>Registration</h2>
+                <div class="tab-buttons">
+                    <button class="tab-btn active" data-tab="user-register">User</button>
+                    <button class="tab-btn" data-tab="hospital-register">Hospital</button>
+                </div>
+
+                <!-- User Registration Form -->
+                <form id="user-register" class="tab-content active">
+                    <div class="form-group">
+                        <label for="user-name">Full Name:</label>
+                        <input type="text" id="user-name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="user-email">Email:</label>
+                        <input type="email" id="user-email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="user-phone">Phone:</label>
+                        <input type="tel" id="user-phone" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="user-address">Residential Address:</label>
+                        <textarea id="user-address" required></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="user-nid">National Identity Number:</label>
+                        <input type="text" id="user-nid" required>
+                    </div>
+                    <button type="submit" class="btn-submit">Register</button>
+                </form>
+
+                <!-- Hospital Registration Form -->
+                <form id="hospital-register" class="tab-content hidden">
+                    <div class="form-group">
+                        <label for="hospital-name">Hospital Name:</label>
+                        <input type="text" id="hospital-name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="hospital-venue">Venue/Location:</label>
+                        <input type="text" id="hospital-venue" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="hospital-email">Email:</label>
+                        <input type="email" id="hospital-email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="hospital-phone">Phone:</label>
+                        <input type="tel" id="hospital-phone" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="hospital-license">License (File):</label>
+                        <input type="file" id="hospital-license" accept=".pdf,.jpg,.jpeg,.png" required>
+                    </div>
+                    <button type="submit" class="btn-submit">Register</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Admin Dashboard -->
+    <div id="admin-page" class="page hidden">
+        <nav class="navbar">
+            <div class="navbar-container">
+                <div class="logo">Admin Dashboard</div>
+                <button id="logout-btn" class="logout-btn">Logout</button>
+            </div>
+        </nav>
+
+        <div class="admin-container">
+            <aside class="admin-sidebar">
+                <button class="sidebar-btn active" data-section="user-info">User Information</button>
+                <button class="sidebar-btn" data-section="hospital-info">Hospital Information</button>
+                <button class="sidebar-btn" data-section="registration-requests">Registration Requests</button>
+                <button class="sidebar-btn" data-section="send-mail">Send Mail</button>
+            </aside>
+
+            <main class="admin-content">
+                <!-- User Information Section -->
+                <section id="user-info" class="admin-section active">
+                    <h2>User Information</h2>
+                    <div class="search-filter">
+                        <input type="text" placeholder="Search users..." id="user-search">
+                        <select id="user-filter">
+                            <option value="">All Users</option>
+                            <option value="active">Active</option>
+                            <option value="inactive">Inactive</option>
+                        </select>
+                    </div>
+                    <div id="user-list" class="info-list">
+                        <!-- Users will be loaded here -->
+                    </div>
+                </section>
+
+                <!-- Hospital Information Section -->
+                <section id="hospital-info" class="admin-section hidden">
+                    <h2>Hospital Information</h2>
+                    <div class="search-filter">
+                        <input type="text" placeholder="Search hospitals..." id="hospital-search">
+                        <select id="hospital-filter">
+                            <option value="">All Hospitals</option>
+                            <option value="approved">Approved</option>
+                            <option value="pending">Pending</option>
+                        </select>
+                    </div>
+                    <div id="hospital-list" class="info-list">
+                        <!-- Hospitals will be loaded here -->
+                    </div>
+                </section>
+
+                <!-- Registration Requests Section -->
+                <section id="registration-requests" class="admin-section hidden">
+                    <h2>Registration Requests</h2>
+                    <div class="requests-filter">
+                        <select id="request-type-filter">
+                            <option value="">All Requests</option>
+                            <option value="user">User Registrations</option>
+                            <option value="hospital">Hospital Registrations</option>
+                        </select>
+                    </div>
+                    <div id="requests-list" class="requests-list">
+                        <!-- Registration requests will be loaded here -->
+                    </div>
+                </section>
+
+                <!-- Send Mail Section -->
+                <section id="send-mail" class="admin-section hidden">
+                    <h2>Send Mail</h2>
+                    <form id="send-mail-form" class="mail-form">
+                        <div class="form-group">
+                            <label for="mail-username">Username:</label>
+                            <input type="text" id="mail-username" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="mail-password">Password:</label>
+                            <input type="text" id="mail-password" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="mail-email">Email:</label>
+                            <input type="email" id="mail-email" required>
+                        </div>
+                        <button type="submit" class="btn-submit">Send</button>
+                    </form>
+                </section>
+            </main>
+        </div>
+    </div>
+
+    <!-- Hospital Dashboard -->
+    <div id="hospital-page" class="page hidden">
+        <nav class="navbar">
+            <div class="navbar-container">
+                <div class="logo">Hospital Dashboard</div>
+                <button id="hospital-logout-btn" class="logout-btn">Logout</button>
+            </div>
+        </nav>
+
+        <div class="hospital-container">
+            <aside class="hospital-sidebar">
+                <button class="sidebar-btn active" data-section="doctors">Doctors</button>
+                <button class="sidebar-btn" data-section="departments">Departments</button>
+                <button class="sidebar-btn" data-section="hospital-about">About</button>
+            </aside>
+
+            <main class="hospital-content">
+                <!-- Doctors Section -->
+                <section id="doctors" class="hospital-section active">
+                    <h2>Doctors Management</h2>
+                    <div class="doctors-tab-buttons">
+                        <button class="doctors-tab-btn active" data-doctor-tab="available">Available Doctors</button>
+                        <button class="doctors-tab-btn" data-doctor-tab="busy">Busy Doctors</button>
+                        <button class="doctors-tab-btn" data-doctor-tab="unavailable">Unavailable Doctors</button>
+                    </div>
+
+                    <!-- Available Doctors -->
+                    <div id="available" class="doctors-tab-content active">
+                        <div class="add-btn-container">
+                            <button id="add-doctor-btn" class="btn-add">+ Add Doctor</button>
+                        </div>
+                        <div id="available-doctors-list" class="doctors-list">
+                            <!-- Available doctors will be loaded here -->
+                        </div>
+                    </div>
+
+                    <!-- Busy Doctors -->
+                    <div id="busy" class="doctors-tab-content hidden">
+                        <div id="busy-doctors-list" class="doctors-list">
+                            <!-- Busy doctors will be loaded here -->
+                        </div>
+                    </div>
+
+                    <!-- Unavailable Doctors -->
+                    <div id="unavailable" class="doctors-tab-content hidden">
+                        <div id="unavailable-doctors-list" class="doctors-list">
+                            <!-- Unavailable doctors will be loaded here -->
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Departments Section -->
+                <section id="departments" class="hospital-section hidden">
+                    <h2>Departments Management</h2>
+                    <div class="add-btn-container">
+                        <button id="add-department-btn" class="btn-add">+ Add Department</button>
+                    </div>
+                    <div id="departments-list" class="departments-list">
+                        <!-- Departments will be loaded here -->
+                    </div>
+                </section>
+
+                <!-- Hospital About Section -->
+                <section id="hospital-about" class="hospital-section hidden">
+                    <h2>Hospital Information</h2>
+                    <form id="hospital-about-form" class="about-form">
+                        <div class="form-group">
+                            <label for="about-name">Hospital Name:</label>
+                            <input type="text" id="about-name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="about-venue">Venue/Location:</label>
+                            <input type="text" id="about-venue" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="about-email">Email:</label>
+                            <input type="email" id="about-email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="about-phone">Phone:</label>
+                            <input type="tel" id="about-phone" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="about-description">Description:</label>
+                            <textarea id="about-description" required></textarea>
+                        </div>
+                        <button type="submit" class="btn-submit">Update Information</button>
+                    </form>
+                </section>
+            </main>
+        </div>
+    </div>
+
+    <!-- User Dashboard -->
+    <div id="user-page" class="page hidden">
+        <nav class="navbar">
+            <div class="navbar-container">
+                <div class="logo">User Dashboard</div>
+                <button id="user-logout-btn" class="logout-btn">Logout</button>
+            </div>
+        </nav>
+
+        <div class="user-container">
+            <aside class="user-sidebar">
+                <button class="sidebar-btn active" data-section="user-about">About</button>
+                <button class="sidebar-btn" data-section="appointments">Appointments</button>
+            </aside>
+
+            <main class="user-content">
+                <!-- User About Section -->
+                <section id="user-about" class="user-section active">
+                    <h2>My Information</h2>
+                    <form id="user-about-form" class="about-form">
+                        <div class="form-group">
+                            <label for="my-name">Full Name:</label>
+                            <input type="text" id="my-name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="my-email">Email:</label>
+                            <input type="email" id="my-email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="my-phone">Phone:</label>
+                            <input type="tel" id="my-phone" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="my-address">Residential Address:</label>
+                            <textarea id="my-address" required></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="my-nid">National Identity Number:</label>
+                            <input type="text" id="my-nid" required>
+                        </div>
+                        <button type="submit" class="btn-submit">Update Information</button>
+                    </form>
+                </section>
+
+                <!-- Appointments Section -->
+                <section id="appointments" class="user-section hidden">
+                    <h2>My Appointments</h2>
+                    <div id="appointments-list" class="appointments-list">
+                        <!-- User appointments will be loaded here -->
+                    </div>
+                </section>
+            </main>
+        </div>
+    </div>
+
+    <!-- Chat Box Modal -->
+    <div id="chat-modal" class="modal hidden">
+        <div class="modal-content chat-container">
+            <button class="modal-close">&times;</button>
+            <div class="chat-header">
+                <h3 id="chat-doctor-name">Doctor Name</h3>
+            </div>
+            <div id="chat-messages" class="chat-messages">
+                <!-- Messages will be loaded here -->
+            </div>
+            <div class="chat-input-container">
+                <input type="text" id="chat-input" placeholder="Type your message...">
+                <button id="chat-send-btn" class="btn-submit">Send</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/rbac.js"></script>
+    <script src="js/api.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/admin.js"></script>
+    <script src="js/hospital.js"></script>
+    <script src="js/user.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>
